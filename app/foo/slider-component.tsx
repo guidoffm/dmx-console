@@ -4,14 +4,14 @@ import { useState } from "react";
 
 interface SliderComponentProps {
     id: string;
-    // initialValue: number;
+    initialValue: number;
     // min: number;
     // max: number;
     onChange: (id: string, value: number) => void;
 }
 
-export function SliderComponent({id, onChange}: SliderComponentProps) {
-    const [sliderValue, setSliderValue] = useState(0); 
+export function SliderComponent({ id, initialValue, onChange }: SliderComponentProps) {
+    const [sliderValue, setSliderValue] = useState(initialValue);
 
     // const handleClick = async (event: { preventDefault: () => void; }) => {
     //     console.log('Button clicked');
@@ -24,7 +24,7 @@ export function SliderComponent({id, onChange}: SliderComponentProps) {
     //     });
     // }
 
-    const sliderChange = async (event: { target: { value: any; }; }) => { 
+    const sliderChange = async (event: { target: { value: any; }; }) => {
         // console.log(`Slider value: ${event.target.value}`);
         const newValue = event.target.value;
         setSliderValue(newValue);
@@ -47,15 +47,17 @@ export function SliderComponent({id, onChange}: SliderComponentProps) {
                 Click me
             </button> */}
 
-            <div className="mt-4 w-full flex justify-center">
+            <div className="flex flex-col items-center">
                 <input
                     type="range"
-                    value={sliderValue} 
+                    value={sliderValue}
                     min="0"
                     max="255"
-                    className="mt-4 w-full transform -rotate-90 w-64"
+                    className="mt-4 w-full transform -rotate-90 w-64 mb-16"
                     onChange={sliderChange}
                 />
+                <label className="mt-2 text-center">{`${Number(id)+1}: ${sliderValue}`}</label>
+      
             </div>
         </>
     );
