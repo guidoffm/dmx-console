@@ -1,12 +1,11 @@
-import { ClientComponent } from "./client-component";
 
+import { SliderGroupComponent } from "./slider-group-component";
 
 export default async function Page() {
 
-
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <ClientComponent />
+    <div className="flex justify-center items-center h-screen space-x-1">
+     <SliderGroupComponent />
     </div>
   );
 }
