@@ -25,17 +25,9 @@ export function SliderComponent({ id, initialValue, onChange }: SliderComponentP
     // }
 
     const sliderChange = async (event: { target: { value: any; }; }) => {
-        // console.log(`Slider value: ${event.target.value}`);
         const newValue = event.target.value;
         setSliderValue(newValue);
         onChange(id, newValue);
-        // const response = await fetch('/api/slider', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(newValue),
-        // });
     }
 
     return (
