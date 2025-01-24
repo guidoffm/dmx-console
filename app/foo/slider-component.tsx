@@ -48,16 +48,18 @@ export function SliderComponent({ id, initialValue, onChange }: SliderComponentP
             </button> */}
 
             <div className="flex flex-col items-center">
+                <label className="mt-2 text-center">{`${sliderValue}`}</label>
+
                 <input
                     type="range"
                     value={sliderValue}
                     min="0"
                     max="255"
-                    className="mt-4 w-full transform -rotate-90 w-64 mb-16"
+                    className="mt-4 w-full transform -rotate-90 w-64 mb-16 mt-16"
                     onChange={sliderChange}
                 />
-                <label className="mt-2 text-center">{`${Number(id)+1}: ${sliderValue}`}</label>
-      
+
+                <label className="mt-2 text-center">{`${Number(id) + 1}`}</label>
             </div>
         </>
     );
