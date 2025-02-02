@@ -31,7 +31,7 @@ export function SliderGroupComponent({ initialData }: SliderGroupComponentProps)
     };
 
     return (
-        <div className="flex flex-col justify-center items-center h-[80vh] ">
+        <div className="flex justify-center items-center h-[80vh] ">
             {initialArray.map((_, index) => (
                 <SliderComponent
                     key={index}
