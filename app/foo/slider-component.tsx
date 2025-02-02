@@ -31,29 +31,22 @@ export function SliderComponent({ id, initialValue, onChange }: SliderComponentP
     }
 
     return (
-        <>
-            {/* <button
-                onClick={handleClick}
-                className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-            >
-                Click me
-            </button> */}
+        <div className="flex justify-between bg-slate-100 h-12 w-96 px-2 border border-black m-0.5" id="slider-container">
+            <label id="labelNumber" className="mt-2 text-center w-[10%]">{`${Number(id) + 1}`}</label>
 
-            <div className="flex flex-row-reverse justify-between bg-lime-600 h-8 w-96 px-2" id="slider-container">
-                <label id="labelValue" className="mt-2 text-right w-[10%]">{`${sliderValue}`}</label>
+            <input
+                type="range"
+                value={sliderValue}
+                min="0"
+                max="255"
+                className="w-[80%]"
+                onChange={sliderChange}
+                id="slider"
+                // style={{ transform: 'rotate(-90deg)' }}
+            />
+            <label id="labelValue" className="mt-2 text-right w-[10%]">{`${sliderValue}`}</label>
 
-                <input
-                    type="range"
-                    value={sliderValue}
-                    min="0"
-                    max="255"
-                  className="w-[80%]"
-                    onChange={sliderChange}
-                    id="slider"
-                />
+        </div>
 
-                <label id="labelNumber" className="mt-2 text-center w-[10%]">{`${Number(id) + 1}`}</label>
-            </div>
-        </>
     );
 }
