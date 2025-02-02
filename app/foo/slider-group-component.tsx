@@ -7,8 +7,13 @@ interface SliderGroupComponentProps {
     initialData: string
 }
 export function SliderGroupComponent({ initialData }: SliderGroupComponentProps) {
+    const initialLength = 8;
     // convert initialData to Buffer
-    const initialArray = initialData.split(',').map(Number);
+    const initialArray = initialData.split(',').map(Number).slice(0, initialLength);
+    // fill up to initialLength with 0
+    while (initialArray.length < initialLength) {
+        initialArray.push(0);
+    }
     const [data, setData] = useState(Buffer.from(initialArray));
     const handleSliderChange = async (id: string, value: number) => {
         // console.log(`Slider ${id} value changed to: ${value}`);
@@ -26,7 +31,7 @@ export function SliderGroupComponent({ initialData }: SliderGroupComponentProps)
     };
 
     return (
-        <div className="flex justify-center items-center h-screen space-x-1">
+        <div className="flex flex-col justify-center items-center h-[80vh] ">
             {initialArray.map((_, index) => (
                 <SliderComponent
                     key={index}

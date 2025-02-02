@@ -7,7 +7,9 @@ export default function Home() {
         <Link href={"foo"} className="text-blue-500 hover:text-blue-700 text-center block font-bold bg-yellow-200 p-2 rounded">
           Foo
         </Link>
-       
+        <Link href={"bar"} className="text-blue-500 hover:text-blue-700 text-center block font-bold bg-yellow-200 p-2 rounded">
+          Bar
+        </Link>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         
