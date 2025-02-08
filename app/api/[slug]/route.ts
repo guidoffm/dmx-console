@@ -1,10 +1,25 @@
-
-// import { OlaClient } from 'ola-client';
 import { NextResponse } from 'next/server';
 import { OlaClient } from 'ola-client';
 
-async function sleep(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+// async function sleep(ms: number) {
+//     return new Promise((resolve) => setTimeout(resolve, ms));
+// }
+
+export async function GET(request: Request) {
+    const url = request.url;
+    const client = new OlaClient();
+    if (url.includes('universes')) {
+  
+        const universesPluginList = await client.universePluginList();
+        console.log('Universes:', universesPluginList);
+        return new NextResponse(JSON.stringify(universesPluginList.universes));
+
+        // return Response.json({
+        //     message: 'POST request :' + request.url,
+        //     payload: payload
+        // });
+        // return new NextResponse(null, { status: 204 });
+    }
 }
 
 // export const dynamic = 'force-dynamic' // defaults to auto
@@ -25,6 +40,8 @@ export async function POST(request: Request) {
         // });
         return new NextResponse(null, { status: 204 });
     }
+
+
 
     if (url.includes('off')) {
         const payload = await request.json();

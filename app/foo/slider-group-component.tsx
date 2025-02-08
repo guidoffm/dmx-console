@@ -7,7 +7,7 @@ interface SliderGroupComponentProps {
     initialData: string
 }
 export function SliderGroupComponent({ initialData }: SliderGroupComponentProps) {
-    const initialLength = 8;
+    const initialLength = 32;
     // convert initialData to Buffer
     const initialArray = initialData.split(',').map(Number).slice(0, initialLength);
     // fill up to initialLength with 0
